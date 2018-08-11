@@ -3,14 +3,22 @@ package com.soo.shop.dto;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@JacksonXmlRootElement(localName = "member")//spring 과 상관없는 third party.. 소문자로 xml 출력
+//@JacksonXmlRootElement(localName = "member")//spring 과 상관없는 third party.. 소문자로 xml 출력
 public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
